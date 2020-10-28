@@ -1,12 +1,11 @@
 # plugin made by @hellboi_atul
 # gaandu bina credits ka plugin liya toh tu maderchod...tera khandaan maderchod😂😂
-# Thanks to @Lucy_robot
+# Thanks to @SongsForYouBot's owner..
 
 from telethon import events
 import asyncio
-#from userbot.utils import admin_cmd
-from userbot.events import register 
 from userbot import bot, CMD_HELP
+from userbot.events import register 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import os
 try:
@@ -23,13 +22,13 @@ def bruh(name):
 
     os.system("instantmusic -q -s "+name)
 
-@register(outgoing=True, pattern="^.so(?: |$)(.*)")
+@register(outgoing=True, pattern="^.song(?: |$)(.*)")
 async def getmusic(so):
     if so.fwd_from:
         return
     song = so.pattern_match.group(1)
-    chat = "@Lucy_robot"
-    link = f"/song {song}"
+    chat = "@SongsForYouBot"
+    link = f"{song}"
     await so.edit("```Getting Your Music```")
     async with bot.conversation(chat) as conv:
           await asyncio.sleep(2)
@@ -41,10 +40,10 @@ async def getmusic(so):
               """ - don't spam notif - """
               await bot.send_read_acknowledge(conv.chat_id)
           except YouBlockedUserError:
-              await so.edit("```Please unblock @Lucy_robot and try again```")
+              await so.edit("```Please unblock @SongsForYouBot and try again```")
               return
           await so.edit("`Sending Your Music...weit!😎`")
-          await asyncio.sleep(3)
+          await asyncio.sleep(1)
           await bot.send_file(so.chat_id, respond)
     await so.client.delete_messages(conv.chat_id,
                                        [msg.id, response.id, respond.id])

@@ -12,7 +12,7 @@ from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from userbot import CMD_HELP, bot
 from userbot.utils import admin_cmd
 
-UPSTREAM_REPO_URL = "https://github.com/DARK-COBRA/DARKCOBRA.git"
+UPSTREAM_REPO_URL = "https://github.com/DARK-COBRA/DARKCOBRA"
 HEROKU_API_KEY = Var.HEROKU_API_KEY
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME
 
@@ -117,7 +117,7 @@ async def upstream(ups):
         heroku_app = None
         heroku_applications = heroku.apps()
         if not HEROKU_APP_NAME:
-            await ups.edit('CAT Please set up the `HEROKU_APP_NAME` variable to be able to update userbot.')
+            await ups.edit('Please set up the `HEROKU_APP_NAME` variable to be able to update userbot.')
             repo.__del__()
             return
         for app in heroku_applications:

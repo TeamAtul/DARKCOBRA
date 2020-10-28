@@ -1,3 +1,28 @@
+#   Copyright 2019 - 2020 DarkPrinc3
+
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+
+#       http://www.apache.org/licenses/LICENSE-2.0
+
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
+
+
+
+# Thanks to Dark prince for this plugin..which was already here in DC but we were not awake of this..
+
+
+""" 
+   Thats the reason I say I am an idiot... To use this you have to fill the var PLUGIN_CHANNEL from which you want all your plugins to be installed.. Similar like installall.py / load_all.py which initially javes made..but it did existed here 
+Since a long time...
+
+"""
 
 from userbot import bot
 from telethon import events
@@ -11,9 +36,9 @@ import sys
 import asyncio
 import traceback
 import os
-from userbot.utils import admin_cmd
+import userbot.utils
 
-@borg.on(admin_cmd(pattern="extdl$", outgoing=True))
+@command(pattern="^.extdl", outgoing=True)
 async def install(event):
     if event.fwd_from:
         return
